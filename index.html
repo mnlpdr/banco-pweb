@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema Bancário</title>
+</head>
+<body>
+    <h1>Sistema Bancário</h1>
+    <form>
+        <label for="tipo_conta">Tipo de conta:</label>
+        <select name="tipo_conta" id="tipo_conta" onchange="exibirInputDataAniversario()">
+            <option value="conta">Conta</option>
+            <option value="conta_bonificada">Conta Bonificada</option>
+            <option value="poupanca">Poupança</option>
+        </select> <br>
+        <p id="p_numero">Numero: <input id="numero"></p>
+        <p id="p_saldo">Saldo: <input id="saldo"></p>
+        <p id="p_data_aniversario" style="display: none;">Data de Aniversário: <input id="data_aniversario"></p>
+        
+        <button onclick="contaController.inserir(event)">Inserir</button>
+    </form>
+
+    <script>
+        function exibirInputDataAniversario() {
+            (document.querySelector('#tipo_conta').value === 'poupanca') ?
+                document.querySelector('#p_data_aniversario').style = "display: show;" :
+                document.querySelector('#p_data_aniversario').style = "display: none;";
+        }
+    </script>
+    <script src="js/modelo/conta.js"></script>
+    <script src="js/modelo/conta-bonificada.js"></script>
+    <script src="js/modelo/poupanca.js"></script>
+    <script src="js/modelo/repositorio-contas.js"></script>
+    <script src="js/controlador/conta-controller.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
